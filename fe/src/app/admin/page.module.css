@@ -1,0 +1,174 @@
+.page {
+  min-height: 100vh;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  gap: 18px;
+  color: #111827;
+}
+
+.header {
+  display: grid;
+  gap: 6px;
+}
+
+.header h1 {
+  font-size: 1.9rem;
+}
+
+.header p {
+  color: #4b5563;
+}
+
+.backLink {
+  width: fit-content;
+  margin-top: 4px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 8px 12px;
+  font-weight: 600;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.card h2 {
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+}
+
+.uploadForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.uploadForm button,
+.formFields button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #1d4ed8;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editorGrid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 16px;
+}
+
+.diagramContainer {
+  position: relative;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.diagramImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hotspotPreview,
+.hotspotDraft {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  pointer-events: none;
+}
+
+.hotspotPreview {
+  border: 2px solid rgba(239, 68, 68, 0.85);
+  background: rgba(239, 68, 68, 0.36);
+}
+
+.hotspotDraft {
+  border: 2px dashed #1d4ed8;
+  background: rgba(29, 78, 216, 0.42);
+}
+
+.helperText {
+  margin-top: 8px;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.formFields {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.formFields label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.formFields input,
+.formFields select {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 10px;
+  font: inherit;
+}
+
+.success {
+  color: #166534;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #d1d5db;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background: #f8fafc;
+}
+
+@media (max-width: 980px) {
+  .editorGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 14px;
+  }
+
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

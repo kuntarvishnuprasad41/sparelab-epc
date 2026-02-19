@@ -1,0 +1,22 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DCEEFF"/>
+      <stop offset="1" stop-color="#EFF7E8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="90" y="120" width="230" height="210" rx="16" fill="#B8D8FF" stroke="#3B82F6" stroke-width="3"/>
+  <rect x="320" y="390" width="220" height="180" rx="16" fill="#CFFFE1" stroke="#10B981" stroke-width="3"/>
+  <rect x="580" y="190" width="220" height="220" rx="16" fill="#FDE9B0" stroke="#F59E0B" stroke-width="3"/>
+  <rect x="810" y="410" width="240" height="210" rx="16" fill="#FFD8CC" stroke="#F97316" stroke-width="3"/>
+  <rect x="980" y="110" width="180" height="170" rx="16" fill="#E9D5FF" stroke="#8B5CF6" stroke-width="3"/>
+  <path d="M200 330 C340 360, 420 360, 580 300" stroke="#64748B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M540 470 C640 450, 710 470, 880 470" stroke="#64748B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M800 300 C920 300, 980 260, 1050 220" stroke="#64748B" stroke-width="8" stroke-linecap="round"/>
+  <text x="130" y="170" font-size="28" font-family="Arial" fill="#1F2937">Drive Motor</text>
+  <text x="345" y="450" font-size="28" font-family="Arial" fill="#1F2937">Filter Unit</text>
+  <text x="620" y="245" font-size="28" font-family="Arial" fill="#1F2937">Hose Assembly</text>
+  <text x="840" y="470" font-size="28" font-family="Arial" fill="#1F2937">Control Valve</text>
+  <text x="995" y="160" font-size="25" font-family="Arial" fill="#1F2937">Sensor</text>
+</svg>

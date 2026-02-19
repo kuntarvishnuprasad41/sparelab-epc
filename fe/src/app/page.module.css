@@ -1,0 +1,139 @@
+.page {
+  min-height: 100vh;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  gap: 20px;
+  color: #1f2937;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.header p {
+  color: #4b5563;
+}
+
+.adminLink {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.diagramCard,
+.tableSection {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.diagramContainer {
+  position: relative;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.diagramImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hotspot {
+  position: absolute;
+  border: 2px solid rgba(239, 68, 68, 0.9);
+  background: rgba(239, 68, 68, 0.4);
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.hotspot:hover {
+  transform: scale(1.02);
+  background: rgba(220, 38, 38, 0.55);
+}
+
+.hotspot:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+.hotspotSelected {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+.tableSection {
+  scroll-margin-top: 18px;
+}
+
+.tableSection h2 {
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.partsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.partsTable th,
+.partsTable td {
+  border: 1px solid #d1d5db;
+  text-align: left;
+  padding: 10px;
+}
+
+.partsTable th {
+  background: #f8fafc;
+}
+
+.emptyState {
+  text-align: center;
+  color: #6b7280;
+}
+
+.error {
+  margin-bottom: 12px;
+  color: #b91c1c;
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 14px;
+  }
+
+  .topRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .partsTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
