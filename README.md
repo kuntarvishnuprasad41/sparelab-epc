@@ -1,56 +1,69 @@
-# Parts Diagram Full-Stack App
+# Garage EPC + Job Card (Next.js + Express)
 
-Full-stack web app with:
-- **Frontend:** Next.js (React functional components + TypeScript)
-- **Backend:** Node.js + Express
-- Viewer page with responsive diagram + clickable hotspots + parts table
-- Admin dashboard to upload a new diagram image and create hotspots
+This project now supports a practical garage workflow:
 
-## Project Structure
+- EPC diagram with **multi-select hotspots**
+- Part search with **availability** and **turnaround time**
+- **Add to cart** from EPC selections
+- **Job card creation** using cart items
+- RC image upload with mock OCR extraction for vehicle details
+- Service/labor line costing and bill totals
+- Job card lifecycle status updates and dashboard metrics
+- Admin page for diagram upload and hotspot creation
 
-- `frontend/` Next.js app
-  - `/` viewer page
-  - `/admin` admin dashboard page
-- `backend/` Express API server
-- `frontend/public/diagram.svg` default fallback diagram image
+## Apps
 
-## Backend API
+- Frontend: `/Users/vishnuprasadkuntar/Documents/sparelab-epc/frontend`
+- Backend: `/Users/vishnuprasadkuntar/Documents/sparelab-epc/backend`
 
-### Viewer APIs
+## Frontend Routes
+
+- `http://localhost:3000/`
+  - EPC screen
+  - hotspot multi-select
+  - selected parts table with availability/TAT
+  - alternatives/supersession lookup
+  - add selected to cart
+- `http://localhost:3000/job-cards/new`
+  - RC extraction
+  - customer + vehicle details
+  - service/labor costing
+  - EPC cart part embedding
+  - job card creation
+  - status dashboard and customer history
+- `http://localhost:3000/admin`
+  - upload diagram image
+  - create hotspots
+
+## Backend APIs
+
+### EPC + Parts
 
 - `GET /api/diagram`
-  - Returns `{ "imagePath": string | null }`
 - `GET /api/hotspots`
-  - Returns all hotspots
-- `GET /api/parts`
-  - Returns all parts (for admin dropdown)
+- `GET /api/parts?query=<text>`
 - `GET /api/parts/:partId`
-  - Returns one part
+- `GET /api/parts/:partId/alternatives`
+- `GET /api/services`
 
-### Admin APIs
+### Admin
 
-- `POST /api/admin/diagram-image`
-  - `multipart/form-data`
-  - Field name: `image`
-  - Saves file to `backend/uploads`
-  - Returns `{ "imagePath": "/uploads/<filename>" }`
+- `POST /api/admin/diagram-image` (multipart, field: `image`)
 - `POST /api/admin/hotspots`
-  - JSON body:
 
-```json
-{
-  "label": "6",
-  "x": 0.42,
-  "y": 0.33,
-  "width": 0.1,
-  "height": 0.14,
-  "partId": "part-101"
-}
-```
+### Job Cards + RC
+
+- `POST /api/ocr/rc` (multipart, field: `rcImage`) - mock extraction
+- `GET /api/job-cards/statuses`
+- `GET /api/job-cards/metrics`
+- `GET /api/job-cards?customerPhone=<phone>`
+- `GET /api/job-cards/:jobCardId`
+- `POST /api/job-cards`
+- `PATCH /api/job-cards/:jobCardId/status`
 
 ## Run Locally
 
-### 1) Start backend
+### 1) Backend
 
 ```bash
 cd /Users/vishnuprasadkuntar/Documents/sparelab-epc/backend
@@ -58,9 +71,9 @@ npm install
 npm run dev
 ```
 
-Backend runs on `http://localhost:4000`.
+Runs on `http://localhost:4000`.
 
-### 2) Start frontend
+### 2) Frontend
 
 ```bash
 cd /Users/vishnuprasadkuntar/Documents/sparelab-epc/frontend
@@ -68,23 +81,16 @@ npm install
 npm run dev
 ```
 
-Frontend runs on `http://localhost:3000`.
+Runs on `http://localhost:3000`.
 
-The frontend calls backend at `http://localhost:4000` by default. To change it:
+If backend host is different:
 
 ```bash
-NEXT_PUBLIC_API_BASE_URL=http://your-host:port
+NEXT_PUBLIC_API_BASE_URL=http://your-backend-host:4000
 ```
-
-## Usage
-
-1. Open `http://localhost:3000/admin`.
-2. Upload a diagram image.
-3. Click on the image to place a hotspot coordinate.
-4. Set label/part/width/height and create hotspot.
-5. Open `http://localhost:3000` to verify hotspot selection and parts table behavior.
 
 ## Notes
 
-- Data is in-memory. Restarting backend resets hotspot list and current diagram image path.
-- Uploaded files remain in `backend/uploads` unless removed manually.
+- Data is in-memory for hotspots/job cards/metrics.
+- Uploaded files are saved in `/Users/vishnuprasadkuntar/Documents/sparelab-epc/backend/uploads`.
+- Cart is persisted in browser localStorage.
