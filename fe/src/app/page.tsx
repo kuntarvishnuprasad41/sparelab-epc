@@ -25,7 +25,7 @@ type DiagramResponse = {
   imagePath: string | null;
 };
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://backend-sl.vishnuprasadkuntar.me/";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://backend-sl.vishnuprasadkuntar.me";
 
 function resolveImageSrc(imagePath: string | null): string {
   if (!imagePath) {
